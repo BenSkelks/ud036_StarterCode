@@ -1,10 +1,11 @@
 import media
 import fresh_tomatoes
+import csv
 
-duck_soup = media.Movie("Duck Soup",
-                        "The Marx brothers go to war",
-                        "https://unobtainium13.files.wordpress.com/2015/07/ducksoup1.jpg",
-                        "https://www.youtube.com/watch?v=9CEdb0sGfaI")
+def get_films_from_csv():
+    film_file = csv.reader("FilmList.csv")
+    for row in film_file:
+        print(film_file)
 
 black_cat_white_cat = media.Movie("Black Cat White Cat",
                                   "Grandad's resurrection helps love prevail",
@@ -31,4 +32,7 @@ beverly_hills_cop = media.Movie("Beverly Hills Cop",
                                 "https://upload.wikimedia.org/wikipedia/en/a/a2/Beverly_Hills_Cop.jpg",
                                 "https://www.youtube.com/watch?v=3NoSLJOViDE")
 
-favourite_films = [duck_soup, black_cat_white_cat, the_godfather, pi, the_believer, beverly_hills_cop]
+favourite_films = [black_cat_white_cat, the_godfather, pi, the_believer, beverly_hills_cop]
+
+get_films_from_csv()
+# fresh_tomatoes.open_movies_page(favourite_films)
