@@ -32,12 +32,3 @@ beverly_hills_cop = media.Movie("Beverly Hills Cop",
                                 "https://www.youtube.com/watch?v=3NoSLJOViDE")
 
 favourite_films = [duck_soup, black_cat_white_cat, the_godfather, pi, the_believer, beverly_hills_cop]
-#fresh_tomatoes.open_movies_page(favourite_films)
-print(media.Movie.__name__)
-print(media.Movie.__module__)
-print(pi.__doc__)
-
-
-
-
-
