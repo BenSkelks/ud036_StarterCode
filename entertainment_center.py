@@ -13,7 +13,6 @@ def get_films_from_csv():
                                          film.get("poster"),
                                          film.get("trailer"),
                                          film.get("rating")))
-            print(film.get("rating"))
 
 get_films_from_csv()
 fresh_tomatoes.open_movies_page(film_list)

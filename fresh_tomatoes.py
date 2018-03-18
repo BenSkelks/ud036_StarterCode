@@ -125,8 +125,8 @@ movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{movie_title}</h2>
-    <p align="left">{movie_tagline}</p>
-    <p align="left"><i>Parental guidance:</i> <b>{movie_parental_guidance}</b></p>
+    <p align="left" style="margin:0">{movie_tagline}</p>
+    <p align="left" style="margin:0"><i>Parental guidance:</i> <b>{movie_parental_guidance}</b></p>
 </div>
 '''
 
