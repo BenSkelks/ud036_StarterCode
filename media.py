@@ -4,7 +4,7 @@ import webbrowser
 class Movie():
     """Class for storing movie information"""
 
-    VALID_PARENTAL_GUIDANCE = ["PG", "PG-13", "R", "U", "15", "18"]
+    VALID_PARENTAL_GUIDANCE = ["PG", "PG-13", "R", "U", "15", "18", "Not Fit For Human Consumption"]
 
     def __init__(self, movie_title, movie_storyline, poster_image,
                  trailer_youtube, movie_parental_guidance):
