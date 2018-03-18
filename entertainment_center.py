@@ -11,7 +11,9 @@ def get_films_from_csv():
         for film in csv_entries:
             film_list.append(media.Movie(film.get("title"), film.get("tagline"),
                                          film.get("poster"),
-                                         film.get("trailer")))
+                                         film.get("trailer"),
+                                         film.get("rating")))
+            print(film.get("rating"))
 
 get_films_from_csv()
 fresh_tomatoes.open_movies_page(film_list)
