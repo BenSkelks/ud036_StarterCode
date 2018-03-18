@@ -56,6 +56,10 @@ main_page_head = '''
             top: 0;
             background-color: white;
         }
+        .addMovies {
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
@@ -115,6 +119,10 @@ main_page_content = '''
     <div class="container">
       {movie_tiles}
     </div>
+    <!-- Add a film option -->
+    <div class="addMovies">
+        <button type="button">Add a film!</button>
+    </div>
   </body>
 </html>
 '''
@@ -129,9 +137,6 @@ movie_tile_content = '''
     <p align="left" style="margin:0"><i>Parental guidance:</i> <b>{movie_parental_guidance}</b></p>
 </div>
 '''
-
-# Placeholder for add new film option
-
 
 def create_movie_tiles_content(movies):
     # The HTML content for this section of the page
