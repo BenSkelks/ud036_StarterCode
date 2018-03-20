@@ -57,8 +57,15 @@ main_page_head = '''
             background-color: white;
         }
         .addMovies {
-            padding-left: 20px;
-            padding-bottom: 20px;
+            position: fixed;
+            top: 70px;
+            left: 20px;
+            border-radius: 4px;
+            box-shadow: 2px 2px 5px #666666;
+            border: none;
+        }
+        #addNewFilmForm{
+            display: none;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -84,6 +91,10 @@ main_page_head = '''
           $('.movie-tile').hide().first().show("fast", function showNext() {
             $(this).next("div").show("fast", showNext);
           });
+        });
+        // Open form for adding new forms when Add Film button clicked
+        $(document).on('click', '#addFilmButton', function (event) {
+           $("#addNewFilmForm").css("display", "block");
         });
     </script>
 </head>
@@ -116,12 +127,28 @@ main_page_content = '''
         </div>
       </div>
     </div>
+    <!-- Add film popup -->
+    <div id="addNewFilmForm">
+        <form action="#" id="form" method="post" name="form">
+            <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+                <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+            </a>
+            <h2>Film Details</h2>
+            <hr>
+            <input id="name" name="name" placeholder="Name" type="text">
+            <input id="tagline" name="tagline" placeholder="Tagline" type="text">
+            <input id="trailerURL" name="trailerURL" placeholder="Trailer URL"></input>
+            <input id="parentGuidence" name="parentGuideance" placeholder="Parental guideance"></input>
+            <a href="javascript:%20check_empty()" id="submit">Send</a>
+        </form>
+    </div>
+<!-- Popup Div Ends Here -->
     <div class="container">
       {movie_tiles}
     </div>
-    <!-- Add a film option -->
+    <!-- Add a film button -->
     <div class="addMovies">
-        <button type="button">Add a film!</button>
+        <button id="addFilmButton" type="button">Add a film!</button>
     </div>
   </body>
 </html>
