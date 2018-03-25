@@ -66,6 +66,20 @@ main_page_head = '''
         }
         #addNewFilmForm{
             display: none;
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -91,10 +105,6 @@ main_page_head = '''
           $('.movie-tile').hide().first().show("fast", function showNext() {
             $(this).next("div").show("fast", showNext);
           });
-        });
-        // Open form for adding new forms when Add Film button clicked
-        $(document).on('click', '#addFilmButton', function (event) {
-           $("#addNewFilmForm").css("display", "block");
         });
     </script>
 </head>
@@ -129,17 +139,33 @@ main_page_content = '''
     </div>
     <!-- Add film popup -->
     <div id="addNewFilmForm">
-        <form action="#" id="form" method="post" name="form">
+        <form action="#" id="form">
             <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
                 <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
             </a>
             <h2>Film Details</h2>
             <hr>
-            <input id="name" name="name" placeholder="Name" type="text">
-            <input id="tagline" name="tagline" placeholder="Tagline" type="text">
-            <input id="trailerURL" name="trailerURL" placeholder="Trailer URL"></input>
-            <input id="parentGuidence" name="parentGuideance" placeholder="Parental guideance"></input>
-            <a href="javascript:%20check_empty()" id="submit">Send</a>
+            <p><label for="filmName">Name</label>
+            <input id="filmName" placeholder="Film name" type="text" size="100"></p>
+            <p><label for="tagline">Tagline</label>
+            <input id="tagline" placeholder="Film one liner" type="text" size="100"></p>
+            <p><label for="urlPoster">Poster URL</label>
+            <input id="urlPoster" placeholder="Film poster URL" type="url" size="100"></p>
+            <p><label for="urlTrailer">Trailer URL</label>
+            <input id="urlTrailer" placeholder="Film trailer URL" type="url" size="100"></p>
+            <p><label for="parentGuidance">Parental guidance</label>
+            <input id="parentGuidance" list="parentGuidanceList" placeholder="Parental guidance">
+            <datalist id="parentGuidanceList">
+                <option value="PG">
+                <option value="PG-13">
+                <option value="R">
+                <option value="U">
+                <option value="15">
+                <option value="18">
+                <option value="Not Fit For Human Consumption">
+            </datalist></p>
+            <p><button type="submit">Add Film</button>
+            <button type="button" onclick="document.getElementById('addNewFilmForm').style.display='none'" class="cancelbtn">Cancel</button></p>
         </form>
     </div>
 <!-- Popup Div Ends Here -->
@@ -148,7 +174,7 @@ main_page_content = '''
     </div>
     <!-- Add a film button -->
     <div class="addMovies">
-        <button id="addFilmButton" type="button">Add a film!</button>
+        <button id="addFilmButton" type="button" onclick="document.getElementById('addNewFilmForm').style.display='block'">Add a film!</button>
     </div>
   </body>
 </html>
